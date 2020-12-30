@@ -23,12 +23,12 @@ router.post(
     ).isLength({ min: 6 }),
   ],
   async (req, res) => {
-    const errors = validationResult(req); //extracts errors from req
+    const errors = validationResult(req);
     //if we have error --> bad request (400)
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
+    //else
     const { name, email, password } = req.body;
 
     try {
@@ -71,6 +71,7 @@ router.post(
         payload, //payload
         config.get("jwtSecret"), //secret
         { expiresIn: 360000 },
+        //if token is valid --> send token
         (err, token) => {
           if (err) {
             throw err;

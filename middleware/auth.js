@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
+//auth is used to protect routes & is passed on as middleware function
 module.exports = function (req, res, next) {
   // Get token from header
   const token = req.header("x-auth-token");
@@ -12,7 +13,8 @@ module.exports = function (req, res, next) {
 
   //Verify token
   try {
-    const decoded = jwt.verify(token, config.get("jwtSecret")); //see if token is valid --> decoded
+    //see if token is valid --> correct user --> next()
+    const decoded = jwt.verify(token, config.get("jwtSecret"));
     req.user = decoded.user;
     next();
   } catch (err) {

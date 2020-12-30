@@ -1,7 +1,10 @@
 const express = require("express");
 const connectDB = require("./config/db");
+var cors = require("cors"); //cross-origin-resource-sharing to enable diff localhost to use server
 
 const app = express();
+app.use(cors());
+app.options("*", cors());
 
 //connect DB
 connectDB();

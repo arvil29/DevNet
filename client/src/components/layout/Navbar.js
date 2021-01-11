@@ -5,27 +5,51 @@ import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  //for users logged in
   const authLinks = (
     <ul>
       <li>
+        <Link to="/dashboard">
+          <i className="far fa-user"></i> Dashboard
+        </Link>
+      </li>
+      <li>
+        <Link to="/profiles">
+          <i className="fab fa-connectdevelop"></i> Developers
+        </Link>
+      </li>
+      <li>
+        <Link to="/posts">
+          {" "}
+          <i class="far fa-comments"></i> Posts
+        </Link>
+      </li>
+      <li>
         <a onClick={logout} href="#!">
-          <i className="fas fa-sign-out-alt"></i>{" "}
-          <span className="hide-sm">Logout</span>
+          <i className="fas fa-sign-out-alt"></i> Logout
         </a>
       </li>
     </ul>
   );
 
+  //for guest users w/o account
   const guestLinks = (
     <ul>
       <li>
-        <a href="#!">Developers</a>
+        <Link to="/profiles">
+          <i className="fab fa-connectdevelop"></i> Developers
+        </Link>
       </li>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/register">
+          <i class="far fa-plus-square"></i> Register
+        </Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/login">
+          {" "}
+          <i class="fas fa-sign-in-alt"></i> Login
+        </Link>
       </li>
     </ul>
   );
@@ -38,8 +62,8 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </h1>
       {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment> //if logged in --> show signout button
-        //else --> show original navbar
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment> //if logged in --> show one type of navbar (authLinks)
+        //if not --> show another (guestLinks)
       )}
     </nav>
   );

@@ -11,5 +11,5 @@ export const setAlert = (msg, alertType) => (dispatch) => {
   });
 
   //remove alert after 5 seconds --> calls alert reducer
-  setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), 5000);
+  setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), 3000);
 };

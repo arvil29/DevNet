@@ -4,7 +4,7 @@ import Moment from "react-moment";
 import { connect } from "react-redux";
 import { deleteEducation } from "../../actions/profile";
 
-//profile education is passed in from Dashboard
+//education is passed in from Dashboard
 const Education = ({ education, deleteEducation }) => {
   const educations = education.map((edu) => (
     <tr key={edu._id}>

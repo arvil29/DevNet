@@ -15,6 +15,7 @@ const User = require("../../models/User");
 router.post(
   "/",
   [
+    //using express-validator to validate info user puts in
     body("name", "Name is required").not().isEmpty(),
     body("email", "Please include a valid email").isEmail(),
     body(
@@ -28,18 +29,19 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    //else
+    //else --> destructure from body
     const { name, email, password } = req.body;
 
     try {
       //see if user exists
       let user = await User.findOne({ email });
+
       //if user already exists --> error
       if (user) {
         res.status(400).json({ errors: [{ msg: "User already exists" }] });
       }
 
-      //get users gravatar
+      //else --> get users gravatar
       const avatar = gravatar.url(email, {
         s: "200", //default size
         r: "pg", //rating
@@ -59,13 +61,13 @@ router.post(
       user.password = await bcrypt.hash(password, salt); //create hash for passwd
       await user.save(); //saved to db
 
-      //return jsonwebtoken (JWT) --> makes transferring data via JSON objects secure
       const payload = {
         user: {
           id: user.id,
         },
       };
 
+      //jsonwebtoken (JWT) --> makes transferring data via JSON objects secure
       //sign the token
       jwt.sign(
         payload, //payload

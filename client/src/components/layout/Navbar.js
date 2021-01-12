@@ -62,8 +62,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </h1>
       {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment> //if logged in --> show one type of navbar (authLinks)
+        //if logged in --> show one type of navbar (authLinks)
         //if not --> show another (guestLinks)
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment> 
       )}
     </nav>
   );

@@ -70,8 +70,11 @@ Login.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 
+//connected component needs this part of data from store
+//called any time store state changes
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
+//connect(mapStateToProps, mapDispatchToProps)
 export default connect(mapStateToProps, { login })(Login);

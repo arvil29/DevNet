@@ -19,16 +19,20 @@ const Profile = ({
   useEffect(() => {
     getProfileById(match.params.id);
   }, [getProfileById, match.params.id]); //dependency of getProfileById & runs immediately when profile mounts
+
   return (
     <Fragment>
-      {profile === null || loading ? (
-        <Spinner />
+      {profile === null || loading ? ( //if loading --> spinner | else --> profile
+        <Spinner /> 
       ) : (
         <Fragment>
+
           {/* Header buttons */}
           <Link to="/profiles" className="btn btn-light">
             Back to Profiles
           </Link>
+
+          {/* if authorized user --> 'Edit Profile' button visible */}
           {auth.isAuthenticated &&
             auth.loading === false &&
             auth.user._id === profile.user._id && (
@@ -36,11 +40,15 @@ const Profile = ({
                 Edit Profile
               </Link>
             )}
+
           {/* Layout */}
           <div className="profile-grid my-1">
             {/* first box */}
             <ProfileTop profile={profile} />
-            <ProfileAbout profile={profile} /> {/* second box */}
+
+            {/* second box */}
+            <ProfileAbout profile={profile} /> 
+
             {/* experience box */}
             <div className="profile-exp bg-white p-2">
               <h2 className="text-primary">Experience</h2>
@@ -57,6 +65,7 @@ const Profile = ({
                 <h4>No experience credentials</h4>
               )}
             </div>
+
             {/* education box */}
             <div className="profile-edu bg-white p-2">
               <h2 className="text-primary">Education</h2>
@@ -73,6 +82,7 @@ const Profile = ({
                 <h4>No education credentials</h4>
               )}
             </div>
+            
             {/**github repos */}
             {profile.githubusername && (
               <ProfileGithub username={profile.githubusername} />

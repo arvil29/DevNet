@@ -21,7 +21,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
           {/* Developrs title */}
           <h1 className="large text-primary">Developers</h1>
 
-          {/* Browse & connect title */}
+          {/* Browse & connect with developers */}
           <p className="lead">
             <i className="fab fa-connectdevelop"></i> Browse and connect with
             developers

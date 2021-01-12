@@ -57,7 +57,11 @@ const CreateProfile = ({ createProfile, history }) => {
         profile stand out
       </p>
       <small>* = required field</small>
+
+      {/* form starts here */}
       <form className="form" onSubmit={(e) => onSubmit(e)}>
+        
+        {/* Select professional status from dropdown */}
         <div className="form-group">
           <select name="status" value={status} onChange={(e) => onChange(e)}>
             <option value="0">* Select Professional Status</option>
@@ -74,6 +78,8 @@ const CreateProfile = ({ createProfile, history }) => {
             Give us an idea of where you are at in your career
           </small>
         </div>
+
+        {/* Company */}
         <div className="form-group">
           <input
             type="text"
@@ -86,6 +92,8 @@ const CreateProfile = ({ createProfile, history }) => {
             Could be your own company or one you work for
           </small>
         </div>
+
+        {/* Website */}
         <div className="form-group">
           <input
             type="text"
@@ -98,6 +106,8 @@ const CreateProfile = ({ createProfile, history }) => {
             Could be your own or a company website
           </small>
         </div>
+
+        {/* Location */}
         <div className="form-group">
           <input
             type="text"
@@ -110,6 +120,8 @@ const CreateProfile = ({ createProfile, history }) => {
             City & state suggested (eg. Boston, MA)
           </small>
         </div>
+
+        {/* Skills */}
         <div className="form-group">
           <input
             type="text"
@@ -122,6 +134,8 @@ const CreateProfile = ({ createProfile, history }) => {
             Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
           </small>
         </div>
+
+        {/* Github username */}
         <div className="form-group">
           <input
             type="text"
@@ -135,6 +149,8 @@ const CreateProfile = ({ createProfile, history }) => {
             username
           </small>
         </div>
+
+        {/* Bio */}
         <div className="form-group">
           <textarea
             placeholder="A short bio of yourself"
@@ -145,6 +161,7 @@ const CreateProfile = ({ createProfile, history }) => {
           <small className="form-text">Tell us a little about yourself</small>
         </div>
 
+        {/* Add Social Network Links toggle button */}
         <div className="my-2">
           <button
             onClick={() => toggleSocialInputs(!displaySocialInputs)} //set to true/false with every click
@@ -158,6 +175,8 @@ const CreateProfile = ({ createProfile, history }) => {
 
         {displaySocialInputs && ( //if displaySocialInputs is true --> show links
           <Fragment>
+
+            {/* Twitter */}
             <div className="form-group social-input">
               <i className="fab fa-twitter fa-2x"></i>
               <input
@@ -169,6 +188,7 @@ const CreateProfile = ({ createProfile, history }) => {
               />
             </div>
 
+            {/* Facebook */}
             <div className="form-group social-input">
               <i className="fab fa-facebook fa-2x"></i>
               <input
@@ -180,6 +200,7 @@ const CreateProfile = ({ createProfile, history }) => {
               />
             </div>
 
+            {/* Youtube */}
             <div className="form-group social-input">
               <i className="fab fa-youtube fa-2x"></i>
               <input
@@ -191,6 +212,7 @@ const CreateProfile = ({ createProfile, history }) => {
               />
             </div>
 
+            {/* Linkedin */}
             <div className="form-group social-input">
               <i className="fab fa-linkedin fa-2x"></i>
               <input
@@ -202,6 +224,7 @@ const CreateProfile = ({ createProfile, history }) => {
               />
             </div>
 
+            {/* Instagram */}
             <div className="form-group social-input">
               <i className="fab fa-instagram fa-2x"></i>
               <input
@@ -215,7 +238,10 @@ const CreateProfile = ({ createProfile, history }) => {
           </Fragment>
         )}
 
+        {/* Submit button */}
         <input type="submit" className="btn btn-primary my-1" />
+        
+        {/* Go back button */}
         <Link className="btn btn-light my-1" to="/dashboard">
           Go Back
         </Link>

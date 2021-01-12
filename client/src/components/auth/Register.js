@@ -23,7 +23,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert("Passwords do not match", "danger"); //calls actions/alert.js
+      setAlert("Passwords do not match", "danger"); //calls action which is linked to reducer
     } else {
       register({ name, email, password });
     }
@@ -102,8 +102,11 @@ Register.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };
 
+//connected component needs this part of data from store
+//called any time store state changes
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
+//connect(mapStateToProps, mapDispatchToProps)
 export default connect(mapStateToProps, { setAlert, register })(Register);

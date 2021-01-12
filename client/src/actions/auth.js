@@ -12,8 +12,14 @@ import {
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
+//how actions are working:
+// 1. call backend API that returns res data
+// 2. pass in res data as payload & dispatch (call specific reducer)
+// 3. reducer updates the state w/ new res data passed in
+
 //Load User
 export const loadUser = () => async (dispatch) => {
+  //if token exists in browser's localstorage --> set token to header via setAuthToken
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
@@ -39,6 +45,7 @@ export const register = ({ name, email, password }) => async (dispatch) => {
     },
   };
 
+  //convert from json obj to json string
   const body = JSON.stringify({ name, email, password });
 
   try {
@@ -102,6 +109,6 @@ export const login = (email, password) => async (dispatch) => {
 
 //Logout | Clear profile
 export const logout = () => (dispatch) => {
-  dispatch({ type: CLEAR_PROFILE }); //make sure state is cleared of logged in user after logout
+  dispatch({ type: CLEAR_PROFILE }); //make sure state has no logged in user after logout
   dispatch({ type: LOGOUT });
 };

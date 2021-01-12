@@ -21,7 +21,7 @@ const Dashboard = ({
   //if profile not loaded yet --> show spinner
   return loading && profile === null ? (
     <Spinner />
-  ) : (
+  ) : ( //else --> show dashboard
     <Fragment>
       <h1 className="large text-primary">Dashboard</h1>
       <p className="lead">

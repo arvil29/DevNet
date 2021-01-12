@@ -11,6 +11,12 @@ import {
   GET_REPOS,
 } from "./types";
 
+//how actions are working:
+// 1. call backend API that returns res data
+// 2. pass in res data as payload & dispatch (call specific reducer)
+// 3. reducer updates the state w/ new res data passed in
+
+
 //Get current users profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
@@ -110,9 +116,8 @@ export const createProfile = (formData, history, edit = false) => async (
     dispatch(setAlert(edit ? "Profile Updated" : "Profile Created", "success"));
 
     //cannot use <Redirect> in actions --> need to use history obj from withRouter
-    //if created nw profile/updated profile --> redirect to dashboard
+    //if created new profile/updated profile --> redirect to dashboard
     history.push("/dashboard");
-    
   } catch (err) {
     //if we forget to input required fields --> errors
     const errors = err.response.data.errors;

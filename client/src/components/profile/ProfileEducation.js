@@ -7,17 +7,26 @@ const ProfileEducation = ({
 }) => {
   return (
     <div>
+      {/* School */}
       <h3 className="text-dark">{school}</h3>
+
+      {/* to & from date */}
       <p>
         <Moment format="YYYY/MM/DD">{from}</Moment> -{" "}
         {!to ? "Present" : <Moment format="YYYY/MM/DD">{to}</Moment>}
       </p>
+
+      {/* Degree */}
       <p>
         <strong>Degree: </strong> {degree}
       </p>
+
+      {/* Field of study */}
       <p>
         <strong>Field of Study: </strong> {fieldofstudy}
       </p>
+
+      {/* Desctiption */}
       <p>
         <strong>Description: </strong> {description}
       </p>

@@ -8,7 +8,7 @@ const { body, validationResult } = require("express-validator"); //validates use
 const bcrypt = require("bcryptjs");
 
 //@route    GET api/auth
-//@desc     Test route
+//@desc     Get logged in user
 //@access   Public
 router.get("/", auth, async (req, res) => {
   try {
@@ -21,7 +21,7 @@ router.get("/", auth, async (req, res) => {
 });
 
 //@route    POST api/auth
-//@desc     Authenticate user & get token
+//@desc     Login user & get token
 //@access   Public
 router.post(
   "/",
@@ -55,13 +55,13 @@ router.post(
           .json({ errors: [{ msg: "Invalid Credentials" }] });
       }
 
-      //return jsonwebtoken (JWT) --> makes transferring data via JSON objects secure
       const payload = {
         user: {
           id: user.id,
         },
       };
 
+      //return jsonwebtoken (JWT) --> makes transferring data via JSON objects secure
       //sign the token
       jwt.sign(
         payload, //payload

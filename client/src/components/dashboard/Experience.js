@@ -4,7 +4,7 @@ import Moment from "react-moment"; //date library for formatting dates
 import { connect } from "react-redux";
 import { deleteExperience } from "../../actions/profile";
 
-//profile.experience is passed in from Dashboard
+//experience is passed in from Dashboard
 const Experience = ({ experience, deleteExperience }) => {
   const experiences = experience.map((exp) => (
     <tr key={exp._id}>

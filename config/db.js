@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const config = require("config"); //grab string from required json
+const config = require("config");
 const db = config.get("mongoURI");
 
 //connect to mongodb asynchronously

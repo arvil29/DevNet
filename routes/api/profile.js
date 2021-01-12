@@ -132,6 +132,7 @@ router.get("/user/:user_id", async (req, res) => {
       user: req.params.user_id,
     }).populate("user", ["name", "avatar"]);
 
+    //if profile not foud --> error
     if (!profile) {
       return res.status(400).json({ msg: "Profile not found" });
     }
@@ -205,7 +206,7 @@ router.put(
 
     try {
       const profile = await Profile.findOne({ user: req.user.id });
-      profile.experience.unshift(newExp);
+      profile.experience.unshift(newExp); //add newExp to head of array
       await profile.save();
       res.json(profile);
     } catch (err) {
@@ -311,7 +312,7 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
 //@access   Public
 router.get("/github/:username", (req, res) => {
   try {
-    //get github user info from github api
+    //get github user info from github API
     const options = {
       uri: `https://api.github.com/users/${
         req.params.username

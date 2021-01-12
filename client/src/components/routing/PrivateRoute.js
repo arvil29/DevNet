@@ -3,6 +3,8 @@ import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+//routes wrappd with this class can only be accessed when user is logged in
+
 const PrivateRoute = ({
   component: Component,
   auth: { isAuthenticated, loading },

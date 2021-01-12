@@ -15,7 +15,7 @@ router.post(
   "/",
   [auth, [body("text", "Text is required").not().isEmpty()]],
   async (req, res) => {
-    const errors = validationResult(req);
+    const errors = validationResult(req); //extracts validation errors from req
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
@@ -209,6 +209,7 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
       return res.status(401).json({ msg: "User not authorized" });
     }
 
+    //find index to delete
     const removeIndex = post.comments
       .map((comment) => comment.user.toString())
       .indexOf(req.user.id);

@@ -11,6 +11,8 @@ const PostForm = ({ addPost }) => {
       <div class="bg-primary p">
         <h3>Say Something...</h3>
       </div>
+
+      {/* post type in area */}
       <form
         class="form my-1"
         onSubmit={(e) => {
@@ -28,6 +30,8 @@ const PostForm = ({ addPost }) => {
           onChange={(e) => setText(e.target.value)}
           required
         ></textarea>
+
+        {/* submit button */}
         <input type="submit" class="btn btn-dark my-1" value="Submit" />
       </form>
     </div>

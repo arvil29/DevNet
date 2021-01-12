@@ -31,6 +31,8 @@ const AddEducation = ({ addEducation, history }) => {
         have attended
       </p>
       <small>* = required field</small>
+
+      {/* form starts here */}
       <form
         class="form"
         onSubmit={(e) => {
@@ -38,6 +40,7 @@ const AddEducation = ({ addEducation, history }) => {
           addEducation(formData, history);
         }}
       >
+        {/* School */}
         <div class="form-group">
           <input
             type="text"
@@ -48,6 +51,8 @@ const AddEducation = ({ addEducation, history }) => {
             required
           />
         </div>
+
+        {/* Degree */}
         <div class="form-group">
           <input
             type="text"
@@ -58,6 +63,8 @@ const AddEducation = ({ addEducation, history }) => {
             required
           />
         </div>
+
+        {/* Field of study */}
         <div class="form-group">
           <input
             type="text"
@@ -67,6 +74,8 @@ const AddEducation = ({ addEducation, history }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
+
+        {/* from */}
         <div class="form-group">
           <h4>From Date</h4>
           <input
@@ -76,6 +85,8 @@ const AddEducation = ({ addEducation, history }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
+
+        {/* to */}
         <div class="form-group">
           <h4>To Date</h4>
           <input
@@ -86,6 +97,8 @@ const AddEducation = ({ addEducation, history }) => {
             disabled={toDateDisabled ? "disabled" : ""}
           />
         </div>
+
+        {/* Program desc */}
         <div class="form-group">
           <textarea
             name="description"
@@ -96,7 +109,11 @@ const AddEducation = ({ addEducation, history }) => {
             onChange={(e) => onChange(e)}
           ></textarea>
         </div>
+
+        {/* Submit button */}
         <input type="submit" class="btn btn-primary my-1" />
+        
+        {/* Go back button */}
         <Link class="btn btn-light my-1" to="/dashboard">
           Go Back
         </Link>

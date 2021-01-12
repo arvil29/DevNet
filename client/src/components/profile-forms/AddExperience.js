@@ -31,6 +31,8 @@ const AddExperience = ({ addExperience, history }) => {
         positions that you have held in the past
       </p>
       <small>* = required field</small>
+
+      {/* form starts here */}
       <form
         class="form"
         onSubmit={(e) => {
@@ -38,6 +40,8 @@ const AddExperience = ({ addExperience, history }) => {
           addExperience(formData, history);
         }}
       >
+
+        {/* Job Title */}
         <div class="form-group">
           <input
             type="text"
@@ -48,6 +52,8 @@ const AddExperience = ({ addExperience, history }) => {
             required
           />
         </div>
+
+        {/* Company */}
         <div class="form-group">
           <input
             type="text"
@@ -58,6 +64,8 @@ const AddExperience = ({ addExperience, history }) => {
             required
           />
         </div>
+
+        {/* Location */}
         <div class="form-group">
           <input
             type="text"
@@ -67,6 +75,8 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
+
+        {/* from */}
         <div class="form-group">
           <h4>From Date</h4>
           <input
@@ -76,6 +86,8 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={(e) => onChange(e)}
           />
         </div>
+
+        {/* current job checkbox --> disables 'To Date' */}
         <div class="form-group">
           <p>
             <input
@@ -91,6 +103,8 @@ const AddExperience = ({ addExperience, history }) => {
             Current Job
           </p>
         </div>
+
+        {/* to */}
         <div class="form-group">
           <h4>To Date</h4>
           <input
@@ -101,6 +115,8 @@ const AddExperience = ({ addExperience, history }) => {
             disabled={toDateDisabled ? "disabled" : ""}
           />
         </div>
+
+        {/* Job Desc */}
         <div class="form-group">
           <textarea
             name="description"
@@ -111,7 +127,11 @@ const AddExperience = ({ addExperience, history }) => {
             onChange={(e) => onChange(e)}
           ></textarea>
         </div>
+
+        {/* Submit button */}
         <input type="submit" class="btn btn-primary my-1" />
+        
+        {/* Go back button */}
         <Link class="btn btn-light my-1" to="/dashboard">
           Go Back
         </Link>

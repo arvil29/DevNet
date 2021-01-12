@@ -17,6 +17,8 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
       ) : (
         repos.map((repo) => (
           <div key={repo._id} className="repo bg-white p-1 my-1">
+
+            {/* left side repo name */}
             <div>
               <h4>
                 <a
@@ -29,6 +31,8 @@ const ProfileGithub = ({ username, getGithubRepos, repos }) => {
               </h4>
               <p>{repo.description}</p>
             </div>
+
+            {/* right side stars/watchers/forks */}
             <div>
               <ul>
                 <li className="badge badge-primary">

@@ -13,15 +13,23 @@ const ProfileTop = ({
 }) => {
   return (
     <div className="profile-top bg-primary p-2">
+      {/* Gravatar */}
       <img className="round-img my-1" src={avatar} alt="" />
+
+      {/* Name */}
       <h1 className="large">{name}</h1>
+
+      {/* status:________ at company:___________ */}
       <p className="lead">
         {status} {company && <span> at {company}</span>}
       </p>
+
+      {/* Location */}
       <p>{location}</p>
+
+      {/* show user's every website link that exits */}
       <div className="icons my-1">
         {
-          //if website exists
           website && (
             <a href={website} target="_blank" rel="noopener noreferrer">
               <i className="fas fa-globe fa-2x"></i>

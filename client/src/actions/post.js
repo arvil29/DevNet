@@ -11,6 +11,12 @@ import {
   REMOVE_COMMENT,
 } from "./types";
 
+//how actions are working:
+// 1. call backend API that returns res data
+// 2. pass in res data as payload & dispatch (call specific reducer)
+// 3. reducer updates the state w/ new res data passed in
+
+
 //Get posts
 export const getPosts = () => async (dispatch) => {
   try {
